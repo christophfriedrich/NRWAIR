@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>SII Assignment 10</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js"></script>
+</head>
+<body>
+  <div id="container">
+    <div id="map">
+      <img id="upperleft"     class="upper  left">
+      <img id="uppermiddle"   class="upper  middle">
+      <img id="upperright"    class="upper  right"><br>
+      <img id="centerleft"    class="center left">
+      <img id="centermiddle"  class="center middle">
+      <img id="centerright"   class="center right"><br>
+      <img id="lowerleft"     class="lower  left">
+      <img id="lowermiddle"   class="lower  middle">
+      <img id="lowerright"    class="lower  right">
+    </div>
+    
+    <!--<div id="punkt" style="position:fixed; left:10px; top:10px;"><svg baseProfile="basic" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><path d="M24 0c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z"></path></svg></div>-->
+    
+    <div id="reference">
+      <img id="upperleft2"     class="upper  left">
+      <img id="uppermiddle2"   class="upper  middle">
+      <img id="upperright2"    class="upper  right"><br>
+      <img id="centerleft2"    class="center left">
+      <img id="centermiddle2"  class="center middle">
+      <img id="centerright2"   class="center right"><br>
+      <img id="lowerleft2"     class="lower  left">
+      <img id="lowermiddle2"   class="lower  middle">
+      <img id="lowerright2"    class="lower  right">
+    </div>
+    
+    <div id="markers">
+    </div>
+    
+    <div id="controls">
+      <button id="up" onclick="up()">^</button>
+      <button id="left" onclick="left()">&lt;</button>
+      <button id="right" onclick="right()">&gt;</button>
+      <button id="down" onclick="down()">v</button>
+      
+      <button onclick="zoomIn()">+</button>
+      <button onclick="zoomOut()">-</button>
+      
+      <button onclick="currZoom=9; currX=169; currY=266; showCurrTile()">Münster</button>
+      <button onclick="currZoom=16; currX=21658; currY=34156; showCurrTile()">Domplatz</button>
+      
+      <input id="lat" placeholder="lat">
+      <input id="lon" placeholder="lon">
+      <button onclick="addMarker(parseFloat(document.getElementById('lat').value), parseFloat(document.getElementById('lon').value))">Add</button>
+      
+      <input type="checkbox" value="0" onclick="document.getElementById('map').classList.toggle('showborders');" id="showborders"><label for="showborders">show borders</label>
+      
+      <input type="range" id="time" min="1483704000" max="1484827200" step="86400" onchange="scrollTime(this.value)">
+    </div>
+    
+    <div id="log">
+    </div>
+  </div>
+  
+  <script>
+    init();
+  </script>
+</body>
+</html>

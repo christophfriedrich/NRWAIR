@@ -1,0 +1,160 @@
+#map, #reference, #markers {
+  position:absolute;
+  top:10px;
+  left:10px;
+}
+
+#markers {
+  width:768px;
+  height:768px;
+  overflow:hidden;
+}
+
+div.marker {
+  position:absolute;
+  /*margin-left:-14px;
+  margin-top:-2px;*/
+  margin-left:-10px;
+  margin-top:-20px;
+}
+
+#controls {
+  position:fixed;
+  top:50px;
+  left:780px;
+}
+
+#log {
+  position:fixed;
+  top:10px;
+  left:780px;
+}
+
+img.upper {
+  border-top:1px solid black;
+}
+
+img.center {
+  margin-top:-5px;
+}
+
+img.lower {
+  margin-top:-5px;
+  border-bottom:1px solid black;
+}
+
+
+
+img.right {
+  margin-left:-4px;
+  border-right:1px solid black;
+}
+
+img.middle {
+  margin-left:-4px;
+}
+
+img.left {
+  border-left:1px solid black;
+}
+
+.showborders img {
+  border:1px solid black;
+}
+
+
+
+/*#container {
+  width:700px;
+  margin:0 auto;
+}*/
+
+.marker svg path {
+  stroke:black;
+  stroke-width:2px;
+}
+
+
+
+.marker[data-value^="1"] svg path{
+  fill:#E7F317;  
+}
+
+.marker[data-value^="2"] svg path{
+  fill:#FFF300;  
+}
+
+.marker[data-value^="3"] svg path{
+  fill:#FFA200;  
+}
+
+.marker[data-value^="4"] svg path{
+  fill:#D02E2E;  
+}
+.marker[data-value="0"] svg path,
+.marker[data-value="1"] svg path,
+.marker[data-value="2"] svg path,
+.marker[data-value="3"] svg path,
+.marker[data-value="4"] svg path,
+.marker[data-value="5"] svg path,
+.marker[data-value="6"] svg path,
+.marker[data-value="7"] svg path,
+.marker[data-value="8"] svg path,
+.marker[data-value="9"] svg path{
+  fill:#8BC573; /*A2D05C;*/
+}
+
+
+/*****************************************************************************************/
+
+
+input[type=range] {
+  -webkit-appearance: none;
+  margin-top:30px;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #666;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -14px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #367ebd;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #666;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
