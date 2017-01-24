@@ -1,7 +1,11 @@
+body {
+  font-family:Arial, sans-serif;
+}
+
 /* MAIN DIVS */
 
 #container {
-  width:960px;
+  width:1000px;
   height:100vh;
   margin:0 auto;
   position:relative;
@@ -28,6 +32,16 @@
 
 
 /* CONTROLS LAYOUT */
+
+h1 {
+  margin:0;
+}
+
+h2 {
+  margin:0;
+  margin-top:20px;
+  margin-bottom:10px;
+}
 
 .flex {
   display:flex;
@@ -63,7 +77,11 @@ button {
 }
 
 #mapparameters {
-  margin-top:30px;
+  margin-top:20px;
+}
+
+#shortcutnote {
+  font-style:italic;
 }
 
 
@@ -83,12 +101,12 @@ img.lower {
 }
 
 img.right {
-  margin-left:-4px;
+  margin-left:-5px;
   border-right:1px solid black;
 }
 
 img.middle {
-  margin-left:-4px;
+  margin-left:-5px;
 }
 
 img.left {
@@ -113,22 +131,7 @@ div.marker {
   stroke-width:2px;
 }
 
-.marker[data-value^="1"] svg path{
-  fill:#E7F317;  
-}
-
-.marker[data-value^="2"] svg path{
-  fill:#FFF300;  
-}
-
-.marker[data-value^="3"] svg path{
-  fill:#FFA200;  
-}
-
-.marker[data-value^="4"] svg path{
-  fill:#D02E2E;  
-}
-.marker[data-value="0"] svg path,
+.marker[data-value="0"] svg path,   /* 0-9 */
 .marker[data-value="1"] svg path,
 .marker[data-value="2"] svg path,
 .marker[data-value="3"] svg path,
@@ -138,7 +141,34 @@ div.marker {
 .marker[data-value="7"] svg path,
 .marker[data-value="8"] svg path,
 .marker[data-value="9"] svg path{
-  fill:#8BC573;
+  fill:#5CAEA2;/*#8BC573;*/
+}
+
+.marker[data-value^="1"] svg path{   /* 10-19 */
+  fill:#A2D05C;/*#D0E72E;*/  
+}
+
+.marker[data-value^="2"] svg path{   /* 20-29 */
+  fill:#FFF300;  
+}
+
+.marker[data-value^="3"] svg path{   /* 30-39 */
+  fill:#FFA200;  
+}
+
+.marker[data-value^="4"] svg path{   /* 40-49 -- 50+ remains black */
+  fill:#D02E2E;  
+}
+
+.marker.legend {
+  position:initial;
+  margin:0;
+}
+
+.marker.legend svg {
+  vertical-align:middle;
+  margin-bottom:5px;
+  margin-right:10px;
 }
 
 
@@ -146,7 +176,7 @@ div.marker {
 
 input[type=range] {
   -webkit-appearance: none;
-  margin:30px 0;
+  margin-bottom:10px;
   width:100%;
 }
 input[type=range]:focus {

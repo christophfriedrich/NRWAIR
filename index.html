@@ -36,6 +36,9 @@
     </div>
     
     <div id="controls">
+      <h1>NRWAIR</h1>
+      
+      <h2>Map view</h2>
       <div class="flex">
         <div id="direction">
           <div class="row">
@@ -71,11 +74,24 @@
       <button onclick="addMarker(parseFloat(document.getElementById('lat').value), parseFloat(document.getElementById('lon').value, 42, 'caption'))">Add</button>
       -->
       
+      <h2>Timeshift</h2>
       <input type="range" id="time" min="1483704000" max="1484827200" step="86400" value="1483704000" onchange="loadDataAtTime(this.value)"><br>
       
-      <input type="checkbox" value="0" onclick="document.getElementById('container').classList.toggle('showgrid');" id="showgrid"><label for="showgrid">show grid</label><br>
+      <div id="shortcutnote">Or use W/A/S/D to pan, +/- to zoom, Q/E for time backward/forward.</div>
       
-      <div id="mapparameters"></div>
+      <h2>Legend</h2>
+      <div id="legend">
+        <div class="marker legend" data-value= "0"><svg baseProfile="basic" xmlns="http://www.w3.org/2000/svg" width="24" height="26" viewBox="0 0 48 48"><path d="M24 0c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z"></path></svg>0&ndash;9&nbsp;µg/m³</div>
+        <div class="marker legend" data-value="10"><svg baseProfile="basic" xmlns="http://www.w3.org/2000/svg" width="24" height="26" viewBox="0 0 48 48"><path d="M24 0c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z"></path></svg>10&ndash;19&nbsp;µg/m³</div>
+        <div class="marker legend" data-value="20"><svg baseProfile="basic" xmlns="http://www.w3.org/2000/svg" width="24" height="26" viewBox="0 0 48 48"><path d="M24 0c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z"></path></svg>20&ndash;29&nbsp;µg/m³</div>
+        <div class="marker legend" data-value="30"><svg baseProfile="basic" xmlns="http://www.w3.org/2000/svg" width="24" height="26" viewBox="0 0 48 48"><path d="M24 0c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z"></path></svg>30&ndash;39&nbsp;µg/m³</div>
+        <div class="marker legend" data-value="40"><svg baseProfile="basic" xmlns="http://www.w3.org/2000/svg" width="24" height="26" viewBox="0 0 48 48"><path d="M24 0c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z"></path></svg>40&ndash;49&nbsp;µg/m³</div>
+        <div class="marker legend" data-value="50"><svg baseProfile="basic" xmlns="http://www.w3.org/2000/svg" width="24" height="26" viewBox="0 0 48 48"><path d="M24 0c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z"></path></svg>50+&nbsp;µg/m³</div>
+      </div>
+      
+      <h2>Internal</h2>
+      <input type="checkbox" value="0" onclick="document.getElementById('container').classList.toggle('showgrid');" id="showgrid"><label for="showgrid">Show grid</label><br>
+      <div id="mapparameters"></div> 
     </div>
   </div>
   

@@ -10,10 +10,10 @@ var ajax;
 
 function displayCurrentMapParameters() {
   document.getElementById('mapparameters').innerHTML =
-    'X=' + currX + ' <br> ' +
-    'Y=' + currY + ' <br> ' +
-    'Zoom=' + currZoom + ' <br> ' +
-    'Zeit=' + new Date(parseInt(document.getElementById('time').value+'000')).toLocaleDateString();
+    'X = ' + currX + ' <br> ' +
+    'Y = ' + currY + ' <br> ' +
+    'Zoom = ' + currZoom + ' <br> ' +
+    'Time = ' + new Date(parseInt(document.getElementById('time').value+'000')).toLocaleDateString();
 }
 
 function showTile(zoom, x, y) {
