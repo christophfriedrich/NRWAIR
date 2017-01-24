@@ -96,16 +96,16 @@ function zoomOut() {
 }
 
 function timeForward() {
+  var slider = document.getElementById('time');
   if(slider.value != slider.max) {
-    var slider = document.getElementById('time');
     slider.value = parseInt(slider.value) + parseInt(slider.step);
     slider.onchange();
   }
 }
 
 function timeBackward() {
+  var slider = document.getElementById('time');
   if(slider.value != slider.min) {
-    var slider = document.getElementById('time');
     slider.value = parseInt(slider.value) - parseInt(slider.step);
     slider.onchange();
   }

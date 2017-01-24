@@ -30,6 +30,16 @@ body {
   width:150px;  
 }
 
+#credits {
+  position:relative;
+  top:30px;
+  left:10px;
+  margin-bottom:40px;
+  text-align:center;
+  font-style:italic;
+  color:#666;
+}
+
 
 /* CONTROLS LAYOUT */
 
