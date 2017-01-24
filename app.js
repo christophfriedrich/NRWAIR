@@ -1,12 +1,19 @@
 // config
 var baseurlmap = 'http://services.arcgisonline.com/arcgis/rest/services/Canvas/World_Light_Gray_Base/MapServer/WMTS/1.0.0/?service=WMTS&request=GetTile&version=1.0.0&layer=Canvas_World_Light_Gray_Base&style=default&format=image/png&tilematrixset=default028mm&';
 var baseurlref = 'http://services.arcgisonline.com/arcgis/rest/services/Canvas/World_Light_Gray_Reference/MapServer/WMTS/1.0.0/?service=WMTS&request=GetTile&version=1.0.0&layer=Canvas_World_Light_Gray_Reference&style=default&format=image/png&tilematrixset=default028mm&';
-var baseurlapi = 'http://10.67.42.35:9001/52n-sos-webapp/service';
+var baseurlapi = '/52n-sos-webapp/service';
 
 // global variables
 var currX, currY, currZoom = 0;
 var maxX, maxY, maxZoom = 0;
 var ajax;
+
+function log() {
+  document.getElementById('log').innerHTML = 'X=' + currX + ' <br> ' +
+                                             'Y=' + currY + ' <br> ' +
+                                             'Zoom=' + currZoom + ' <br> ' +
+                                             'Zeit=' + new Date(parseInt(document.getElementById('time').value+'000')).toLocaleDateString();
+}
 
 function showTile(zoom, x, y) {
   document.getElementById('upperleft').src    = baseurlmap + 'tilematrix=' + zoom + '&tilerow=' + (x-1) + '&tilecol=' + (y-1);
@@ -29,7 +36,7 @@ function showTile(zoom, x, y) {
   document.getElementById('lowermiddle2').src  = baseurlref + 'tilematrix=' + zoom + '&tilerow=' + (x+1) + '&tilecol=' + y;
   document.getElementById('lowerright2').src   = baseurlref + 'tilematrix=' + zoom + '&tilerow=' + (x+1) + '&tilecol=' + (y+1);
   
-  document.getElementById('log').innerHTML = 'X=' + x + ' &bull; Y=' + y + ' &bull; Zoom=' + zoom;
+  log();
   
   updateMarkers();
 }
@@ -72,6 +79,18 @@ function zoomOut() {
   showCurrTile();
 }
 
+function timeBackward() {
+  var slider = document.getElementById('time');
+  if(slider.value != slider.min) slider.value = parseInt(slider.value) - parseInt(slider.step);
+  slider.onchange();
+}
+
+function timeForward() {
+  var slider = document.getElementById('time');
+  if(slider.value != slider.max) slider.value = parseInt(slider.value) + parseInt(slider.step);
+  slider.onchange();
+}
+
 // http://gis.stackexchange.com/q/153839
 function latLonToPixels(lat, lon) {
   var sinLat = Math.sin(lat * Math.PI / 180.0);
@@ -85,7 +104,7 @@ function latLonToPixels(lat, lon) {
 function addMarkerAlt(lat, lon) {
   var pixelcoords = latLonToPixels(lat, lon);
   var marker = document.createElement("div");
-  marker.innerHTML = '<svg baseProfile="basic" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><path d="M24 0c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z"></path></svg>';
+  marker.innerHTML = '<svg baseProfile="basic" xmlns="http://www.w3.org/2000/svg" width="24" height="26" viewBox="0 0 48 48"><path d="M24 0c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z"></path></svg>';
   marker.classList.add('marker');
   //marker.style.position = "relative";
   marker.style.left = (pixelcoords[0]) + 'px';
@@ -98,7 +117,7 @@ function addMarkerAlt(lat, lon) {
 function addMarker(lat, lon, value, caption) {
   var pixelcoords = latLonToPixels(lat, lon);
   var marker = document.createElement("div");
-  marker.innerHTML = '<svg baseProfile="basic" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><path d="M24 0c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z"></path></svg>';
+  marker.innerHTML = '<svg baseProfile="basic" xmlns="http://www.w3.org/2000/svg" width="24" height="26" viewBox="0 0 48 48"><path d="M24 0c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z"></path></svg>';
   marker.classList.add('marker');
   marker.style.left = (pixelcoords[0]) + 'px';
   marker.style.top  = (pixelcoords[1]) + 'px';
@@ -128,6 +147,8 @@ function handleShortcuts(e) {
     case 'a': left(); break;
     case 's': down(); break;
     case 'd': right(); break;
+    case 'q': timeBackward(); break;
+    case 'e': timeForward(); break;
   }  
 }
 
@@ -230,4 +251,5 @@ function scrollTime(epoch) {
   };
   
   ajax.send(JSON.stringify(request));
+  log();
 }

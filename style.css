@@ -1,3 +1,10 @@
+#container {
+  width:960px;
+  height:100vh;
+  margin:0 auto;
+  position:relative;
+}
+
 #map, #reference, #markers {
   position:absolute;
   top:10px;
@@ -19,15 +26,38 @@ div.marker {
 }
 
 #controls {
-  position:fixed;
-  top:50px;
-  left:780px;
+  position:relative;
+  top:10px;
+  left:800px;
+  width:150px;  
 }
 
-#log {
-  position:fixed;
-  top:10px;
-  left:780px;
+.flex {
+  display:flex;
+}
+
+#direction .row {
+  text-align:center;
+}
+
+#zoom .row {
+  text-align:right;
+}
+
+#direction, #zoom {
+  flex:1;
+}
+
+#zoomin {
+  margin-top:10px;
+}
+
+#zoomout {
+  margin-top:6px;
+}
+
+#left {
+  margin-right:20px;
 }
 
 img.upper {
@@ -43,8 +73,6 @@ img.lower {
   border-bottom:1px solid black;
 }
 
-
-
 img.right {
   margin-left:-4px;
   border-right:1px solid black;
@@ -58,16 +86,28 @@ img.left {
   border-left:1px solid black;
 }
 
-.showborders img {
+/*.showgrid img:not(:nth-child(4n+1)) {
   border:1px solid black;
+  margin-left:-5px;
+  margin-top:-5px;
+}*/
+
+.showgrid img {
+  outline: 1px solid #000;
 }
 
+#log {
+  margin-top:30px;
+}
 
+button {
+  width:25px;
+  height:25px;
+}
 
-/*#container {
-  width:700px;
-  margin:0 auto;
-}*/
+button.dummy {
+  opacity:0;
+}
 
 .marker svg path {
   stroke:black;
@@ -110,7 +150,8 @@ img.left {
 
 input[type=range] {
   -webkit-appearance: none;
-  margin-top:30px;
+  margin:30px 0;
+  width:100%;
 }
 input[type=range]:focus {
   outline: none;

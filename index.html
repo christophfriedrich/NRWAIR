@@ -38,27 +38,59 @@
     </div>
     
     <div id="controls">
-      <button id="up" onclick="up()">^</button>
+      <!--<button class="dummy"></button>
+      <button id="up" onclick="up()">^</button><br>
       <button id="left" onclick="left()">&lt;</button>
-      <button id="right" onclick="right()">&gt;</button>
-      <button id="down" onclick="down()">v</button>
+      <button class="dummy"></button>
+      <button id="right" onclick="right()">&gt;</button><br>
+      <button class="dummy"></button>
+      <button id="down" onclick="down()">v</button><br><br>
       
-      <button onclick="zoomIn()">+</button>
-      <button onclick="zoomOut()">-</button>
+      <button class="dummy"></button>
+      <button onclick="zoomIn()">+</button><br>
+      <button class="dummy"></button>
+      <button onclick="zoomOut()">-</button><br><br>-->
       
+      <div class="flex">
+        <div id="direction">
+          <div class="row">
+            <button id="up" onclick="up()">^</button>
+          </div>
+          <div class="row">
+            <button id="left" onclick="left()">&lt;</button>
+            <button id="right" onclick="right()">&gt;</button>
+          </div>
+          <div class="row">
+            <button id="down" onclick="down()">v</button>
+          </div>
+        </div>
+        
+        <div id="zoom">
+          <div class="row">
+            <button id="zoomin" onclick="zoomIn()">+</button>
+          </div>
+          <div class="row">
+            <button id="zoomout" onclick="zoomOut()">-</button>
+          </div>
+        </div>
+      </div>
+      
+      <!--
       <button onclick="currZoom=9; currX=169; currY=266; showCurrTile()">Münster</button>
       <button onclick="currZoom=16; currX=21658; currY=34156; showCurrTile()">Domplatz</button>
+      -->
       
+      <!--
       <input id="lat" placeholder="lat">
       <input id="lon" placeholder="lon">
       <button onclick="addMarker(parseFloat(document.getElementById('lat').value), parseFloat(document.getElementById('lon').value))">Add</button>
+      -->
       
-      <input type="checkbox" value="0" onclick="document.getElementById('map').classList.toggle('showborders');" id="showborders"><label for="showborders">show borders</label>
+      <input type="range" id="time" min="1483704000" max="1484827200" step="86400" value="1483704000" onchange="scrollTime(this.value)"><br>
       
-      <input type="range" id="time" min="1483704000" max="1484827200" step="86400" onchange="scrollTime(this.value)">
-    </div>
-    
-    <div id="log">
+      <input type="checkbox" value="0" onclick="document.getElementById('container').classList.toggle('showgrid');" id="showgrid"><label for="showgrid">show grid</label><br>
+      
+      <div id="log"></div>
     </div>
   </div>
   
