@@ -1,3 +1,5 @@
+/* MAIN DIVS */
+
 #container {
   width:960px;
   height:100vh;
@@ -17,14 +19,6 @@
   overflow:hidden;
 }
 
-div.marker {
-  position:absolute;
-  /*margin-left:-14px;
-  margin-top:-2px;*/
-  margin-left:-10px;
-  margin-top:-20px;
-}
-
 #controls {
   position:relative;
   top:10px;
@@ -32,8 +26,15 @@ div.marker {
   width:150px;  
 }
 
+
+/* CONTROLS LAYOUT */
+
 .flex {
   display:flex;
+}
+
+#direction, #zoom {
+  flex:1;
 }
 
 #direction .row {
@@ -44,8 +45,9 @@ div.marker {
   text-align:right;
 }
 
-#direction, #zoom {
-  flex:1;
+button {
+  width:25px;
+  height:25px;
 }
 
 #zoomin {
@@ -59,6 +61,13 @@ div.marker {
 #left {
   margin-right:20px;
 }
+
+#mapparameters {
+  margin-top:30px;
+}
+
+
+/* MAP IMAGE OBJECTS */
 
 img.upper {
   border-top:1px solid black;
@@ -86,35 +95,23 @@ img.left {
   border-left:1px solid black;
 }
 
-/*.showgrid img:not(:nth-child(4n+1)) {
-  border:1px solid black;
-  margin-left:-5px;
-  margin-top:-5px;
-}*/
-
 .showgrid img {
   outline: 1px solid #000;
 }
 
-#log {
-  margin-top:30px;
-}
 
-button {
-  width:25px;
-  height:25px;
-}
+/* MARKERS */
 
-button.dummy {
-  opacity:0;
+div.marker {
+  position:absolute;
+  margin-left:-10px;
+  margin-top:-20px;
 }
 
 .marker svg path {
   stroke:black;
   stroke-width:2px;
 }
-
-
 
 .marker[data-value^="1"] svg path{
   fill:#E7F317;  
@@ -141,12 +138,11 @@ button.dummy {
 .marker[data-value="7"] svg path,
 .marker[data-value="8"] svg path,
 .marker[data-value="9"] svg path{
-  fill:#8BC573; /*A2D05C;*/
+  fill:#8BC573;
 }
 
 
-/*****************************************************************************************/
-
+/* TIME RANGE SLIDER */
 
 input[type=range] {
   -webkit-appearance: none;

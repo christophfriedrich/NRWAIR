@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>SII Assignment 10</title>
+  <title>NRWAIR</title>
   <link rel="stylesheet" href="style.css">
   <script src="app.js"></script>
 </head>
@@ -20,8 +20,6 @@
       <img id="lowerright"    class="lower  right">
     </div>
     
-    <!--<div id="punkt" style="position:fixed; left:10px; top:10px;"><svg baseProfile="basic" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><path d="M24 0c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z"></path></svg></div>-->
-    
     <div id="reference">
       <img id="upperleft2"     class="upper  left">
       <img id="uppermiddle2"   class="upper  middle">
@@ -38,19 +36,6 @@
     </div>
     
     <div id="controls">
-      <!--<button class="dummy"></button>
-      <button id="up" onclick="up()">^</button><br>
-      <button id="left" onclick="left()">&lt;</button>
-      <button class="dummy"></button>
-      <button id="right" onclick="right()">&gt;</button><br>
-      <button class="dummy"></button>
-      <button id="down" onclick="down()">v</button><br><br>
-      
-      <button class="dummy"></button>
-      <button onclick="zoomIn()">+</button><br>
-      <button class="dummy"></button>
-      <button onclick="zoomOut()">-</button><br><br>-->
-      
       <div class="flex">
         <div id="direction">
           <div class="row">
@@ -83,14 +68,14 @@
       <!--
       <input id="lat" placeholder="lat">
       <input id="lon" placeholder="lon">
-      <button onclick="addMarker(parseFloat(document.getElementById('lat').value), parseFloat(document.getElementById('lon').value))">Add</button>
+      <button onclick="addMarker(parseFloat(document.getElementById('lat').value), parseFloat(document.getElementById('lon').value, 42, 'caption'))">Add</button>
       -->
       
-      <input type="range" id="time" min="1483704000" max="1484827200" step="86400" value="1483704000" onchange="scrollTime(this.value)"><br>
+      <input type="range" id="time" min="1483704000" max="1484827200" step="86400" value="1483704000" onchange="loadDataAtTime(this.value)"><br>
       
       <input type="checkbox" value="0" onclick="document.getElementById('container').classList.toggle('showgrid');" id="showgrid"><label for="showgrid">show grid</label><br>
       
-      <div id="log"></div>
+      <div id="mapparameters"></div>
     </div>
   </div>
   
